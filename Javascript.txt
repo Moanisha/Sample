@@ -1,0 +1,92 @@
+function test(a,b,c) {
+ 
+ for(var prop in arguments) {
+ 
+   console.log(arguments[prop]);
+  }
+
+}
+
+
+test(1,2);
+
+
+
+function fibanoci(count) {
+    var a = 0, b = 1;
+    
+    var result=[]
+    result[0]=0;
+    result[1]=1;
+    for(var i = 2; i < count; i++) {
+        result[i] = a + b;
+        a = b;
+        b = result[i];
+    }
+    return result;
+}
+console.log(fibanoci(5));
+
+
+var day1 = {
+squirrel : false ,
+events : [" work " , " touched tree " , " pizza " , " running " ]
+}
+console.log(day1.events);
+
+
+Testcases:
+1. If string
+2. If negative number
+3. If 1
+
+
+
+class Newtry extends React.Component{
+render()
+{
+return(
+<div>
+hello
+<Retry/>
+<Retry/>
+</div>
+)
+}
+}
+
+let Retry=()=>{
+return(
+<div>dsd</div>)
+}
+
+ReactDOM.render(<Newtry/>,mountNode)
+
+
+function fibanoci(count) {
+  
+    if(isNaN(count) && !isFinite(count))
+    {
+      console.log('Provide positive integer greater than 0');
+      return;
+    }
+    else if(count <= 0)
+    {
+      console.log('positive greater than 0');
+      return;
+    }
+    
+    var a = 0, b = 1;
+    
+    var result=[]
+    result[0]=0;
+    result[1]=1;
+    for(var i = 2; i < count; i++) {
+        result[i] = a + b;
+        a = b;
+        b = result[i];
+    }
+    return result;
+}
+
+console.log(fibanoci(1));

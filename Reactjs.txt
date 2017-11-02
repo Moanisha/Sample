@@ -1,0 +1,164 @@
+class Button extends React.Component{
+state={counter:0};
+handleClick=()=>{
+this.setState({
+counter: this.state.counter + 1
+})
+};
+render(){
+
+return(
+<button onClick={this.handleClick}> {this.state.counter}</button>
+);
+}
+}
+ReactDOM.render(<Button/>,mountNode);
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+class Button extends React.Component{
+state={counter:0};
+handleClick=()=>{
+this.setState((prevState)=>({
+counter: prevState.counter + 1
+}))
+};
+render(){
+
+return(
+<button onClick={this.handleClick}> {this.state.counter}</button>
+);
+}
+}
+ReactDOM.render(<Button/>,mountNode);
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+class Button extends React.Component{
+render(){
+return(
+<button onClick={this.props.onClickFunction}> +1</button>
+);
+}
+}
+
+const Result=(props)=>{
+return(
+<div>
+{props.counter}
+</div>);
+}
+
+class App extends React.Component{
+state={counter:0};
+incrementCounter=()=>{
+this.setState({
+counter: this.state.counter + 1
+})
+};
+render(){
+return(
+<div>
+<Button onClickFunction={this.incrementCounter}/>
+<Result counter={this.state.counter}/>
+</div>
+);
+}
+}
+
+
+ReactDOM.render(<App/>,mountNode);
+
+
+
+
+import React from 'react';
+const App=()=>{
+<div className="container">
+App Component
+</div>
+}
+export default App;
+
+
+import * as actions from './index'
+
+describe('todo actions', () => {
+  it('addTodo should create ADD_TODO action', () => {
+    expect(actions.addTodo('Use Redux')).toEqual({
+      type: 'ADD_TODO',
+      id: 0,
+      text: 'Use Redux'
+    })
+  })
+
+  it('setVisibilityFilter should create SET_VISIBILITY_FILTER action', () => {
+    expect(actions.setVisibilityFilter('active')).toEqual({
+      type: 'SET_VISIBILITY_FILTER',
+      filter: 'active'
+    })
+  })
+
+  it('toggleTodo should create TOGGLE_TODO action', () => {
+    expect(actions.toggleTodo(1)).toEqual({
+      type: 'TOGGLE_TODO',
+      id: 1
+    })
+  })
+})
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+class FlavorForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: 'coconut'};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('Your favorite flavor is: ' + this.state.value + this.receipe.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+       
+        <label>
+        Pick whether Juice or raw
+        <input type="text" name="receipe" ref={input => this.receipe = input} onChange={this.handleChange}/>
+          </label>
+        <br/> <label>
+          Pick your favorite La Croix flavor:
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
+            <option value="mango">Mango</option>
+          </select>
+        </label>
+        
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(
+  <FlavorForm />,
+  document.getElementById('root')
+);
